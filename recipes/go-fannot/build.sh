@@ -1,4 +1,4 @@
 #!/bin/bash
 
 make
-make install -prefix ${PREFIX}
+make install prefix="${PREFIX}"
