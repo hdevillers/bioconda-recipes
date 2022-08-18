@@ -1,0 +1,34 @@
+{% set version = "1.0.0" %}
+{% set sha256 = "845aa3777cb07536d6dd3b6103654d76a47338ad7c6c2e9859505a993f8c0392" %}
+
+package:
+  name: go-fannot
+  version: {{ version }}
+
+source:
+  url: https://github.com/hdevillers/go-fannot/archive/refs/tags/v{{ version }}.tar.gz
+  sha256: {{ sha256 }}
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - make
+    - {{ compiler('go') }}
+  host:
+    - zlib
+  run:
+    - zlib
+    - needle
+    - blast
+
+test:
+  commands:
+    - fannot-run -help
+
+about:
+  home: https://github.com/hdevillers/go-fannot
+  license: MIT
+  license_file: LICENSE
+  summary: go-FAnnoT, a functional annotation transfer tool for protein coding genes.
