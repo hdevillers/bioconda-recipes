@@ -1,4 +1,5 @@
 #!/bin/bash
 
 make
-make install prefix="${PREFIX}"
+mkdir -p ${PREFIX}/bin
+make install prefix="${PREFIX}/bin"
